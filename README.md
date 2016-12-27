@@ -2,7 +2,7 @@ Perseus-Minor
 =============
 A short, sci-fi inspired, WebGL demo.
 
-See it live here: http://benjaminbrogniart.com/docs/threejs/perseus-minor/
+See it live here: https://benhdkn.github.io/Perseus-Minor/
 
 Made with the awesome Three.js library (R60).
 
