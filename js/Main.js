@@ -70,7 +70,7 @@ function init() {
 		smallBuilding.scale.y = Math.random() * 7 + 1;
 		smallBuilding.updateMatrix();
 		smallBuilding.matrixAutoUpdate = false;
-		//Merge the buildings for perf.
+		// Merge the buildings for perf
 		THREE.GeometryUtils.merge( smallBuildings, smallBuilding );
 	}
 	var smallBuildingsMerged = new THREE.Mesh( smallBuildings, smallBuildingMat );
@@ -227,36 +227,42 @@ function onWindowResize() {
 
 function animate() {
 	// Spaceship road 01 movements
-	for ( i = 0; i < spaceshipRoad01.length; i++ )
-		spaceshipRoad01[i].position.x += 1;
-	for ( i = 0; i < spaceshipRoad01.length / 2; i++ )
-		spaceshipRoad01[i].position.x += 2;
-	// Spaceship road 01 reset positions
 	for ( i = 0; i < spaceshipRoad01.length; i++ ) {
-		if ( spaceshipRoad01[i].position.x >= 500 )
+		if ( i < spaceshipRoad01.length / 2 ) {
+			spaceshipRoad01[i].position.x += 1;
+		}
+		else {
+			spaceshipRoad01[i].position.x += 2;
+		}
+		if ( spaceshipRoad01[i].position.x >= 500 ) {
 			spaceshipRoad01[i].position.x = -500;
+		}
 	}
 
 	// Spaceship road 02 movements
-	for ( i = 0; i < spaceshipRoad02.length; i++ )
-		spaceshipRoad02[i].position.z += 1;
-	for ( i = 0; i < spaceshipRoad02.length / 2; i++ )
-		spaceshipRoad02[i].position.z += 2;
-	// Spaceship road 02 reset positions
 	for ( i = 0; i < spaceshipRoad02.length; i++ ) {
-		if ( spaceshipRoad02[i].position.z >= 500 )
+		if ( i < spaceshipRoad02.length / 2 ) {
+			spaceshipRoad02[i].position.z += 1;
+		}
+		else {
+			spaceshipRoad02[i].position.z += 2;
+		}
+		if ( spaceshipRoad02[i].position.z >= 500 ) {
 			spaceshipRoad02[i].position.z = -500;
+		}
 	}
 
 	// Spaceship road 03 movements
-	for ( i = 0; i < spaceshipRoad03.length; i++ )
-		spaceshipRoad03[i].position.z -= 1;
-	for ( i = 0; i < spaceshipRoad03.length / 2; i++ )
-		spaceshipRoad03[i].position.z -= 2;
-	// Spaceship road 03 reset positions
 	for ( i = 0; i < spaceshipRoad03.length; i++ ) {
-		if ( spaceshipRoad03[i].position.z <= -500 )
+		if ( i < spaceshipRoad03.length / 2 ) {
+			spaceshipRoad03[i].position.z -= 1;
+		}
+		else {
+			spaceshipRoad03[i].position.z -= 2;
+		}
+		if ( spaceshipRoad03[i].position.z <= -500 ) {
 			spaceshipRoad03[i].position.z = 500;
+		}
 	}
 
 	// Particles movements and reset positions
@@ -280,9 +286,9 @@ function animate() {
 function render() {
 	// Render without shader
 	// renderer.render( scene, camera );
+	// renderer.shadowMapEnabled = true;
+	// renderer.shadowMapSoft = true;
+
 	// Render with shader
 	composer.render();
-
-	renderer.shadowMapEnabled = true;
-	renderer.shadowMapSoft = true;
 }
